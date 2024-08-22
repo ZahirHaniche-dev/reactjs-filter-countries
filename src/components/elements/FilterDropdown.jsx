@@ -9,7 +9,7 @@ export default function FilterDropdown() {
   };
 
   return (
-    <div className="max-w-sm w-full py-8 rounded-lg relative flex justify-end">
+    <div className="max-w-sm w-full rounded-lg relative flex justify-end">
       <div
         className="w-[50%] p-4 border-gray-300 bg-white rounded-md shadow-sm flex items-center justify-between cursor-pointer"
         onClick={toggleDropdown}
@@ -22,12 +22,12 @@ export default function FilterDropdown() {
         )}
       </div>
       {isOpen && (
-        <div className="absolute w-[50%] mt-16 bg-white border-gray-300 rounded-md shadow-lg">
-          <div className="p-2 hover:bg-gray-100 cursor-pointer">Africa</div>
-          <div className="p-2 hover:bg-gray-100 cursor-pointer">America</div>
-          <div className="p-2 hover:bg-gray-100 cursor-pointer">Asia</div>
-          <div className="p-2 hover:bg-gray-100 cursor-pointer">Europe</div>
-          <div className="p-2 hover:bg-gray-100 cursor-pointer">Oceania</div>
+        <div className="absolute w-[50%] mt-16 bg-white border-gray-300 rounded-md shadow-lg z-50">
+          <div className="p-4  hover:bg-gray-100 cursor-pointer">Africa</div>
+          <div className="p-4 hover:bg-gray-100 cursor-pointer">America</div>
+          <div className="p-4 hover:bg-gray-100 cursor-pointer">Asia</div>
+          <div className="p-4 hover:bg-gray-100 cursor-pointer">Europe</div>
+          <div className="p-4 hover:bg-gray-100 cursor-pointer">Oceania</div>
         </div>
       )}
     </div>
