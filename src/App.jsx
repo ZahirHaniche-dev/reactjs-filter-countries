@@ -1,12 +1,14 @@
+import './index.css';
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import CountriesList from './CountriesList';
 
 function App() {
 
   return (
-    <div>
+    <div className="font-nunito-sans bg-gray-100 min-h-screen">
       <Header />
-        <h1>TEST</h1>
+      <CountriesList />
       <Footer />
     </div>
   )

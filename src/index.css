@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply Nunito Sans to the entire body */
+body {
+  @apply font-sans;
+}
