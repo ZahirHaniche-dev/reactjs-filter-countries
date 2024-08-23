@@ -52,7 +52,7 @@ export default function CountriesList({ onSelectCountry }) {
 
   return (
     <div>
-      <div className="relative flex justify-between p-8">
+      <div className="relative flex flex-col md:flex-row justify-between p-4 md:p-8 space-y-4">
         <SearchInput searchText={searchText} setSearchText={setSearchText} />
         <FilterDropdown onSelectRegion={setSelectedRegion} />
       </div>

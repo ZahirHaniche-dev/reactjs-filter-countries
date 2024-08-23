@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useParams } from 'react';
 import './index.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,14 +13,13 @@ function App() {
 
   const handleSelectCountry = (country) => {
     setSelectedCountry(country);
-    
   };
 
   return (
     <Router>
       <div className="font-nunito-sans bg-gray-100 min-h-screen">
         <Header />
-        <div className="px-24">
+        <div className="md:px-24 ">
           <Routes>
             <Route path="/" element={<CountriesList onSelectCountry={handleSelectCountry}/>} />
             <Route path="/country/:name" element={<CountryDetail selectedCountry={selectedCountry} />} />

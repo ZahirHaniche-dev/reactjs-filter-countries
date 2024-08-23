@@ -7,7 +7,7 @@ export default function NotFound() {
             Page not found...
         </p>
         <div className='text-center'>
-            <a href="/"> Back to homepage</a>
+           
             <Link
                 to="/"
             >
