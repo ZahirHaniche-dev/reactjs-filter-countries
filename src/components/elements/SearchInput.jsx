@@ -3,7 +3,7 @@ import MagnifyingGlassIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon
 
 export default function SearchInput() {
   return (
-    <div className="max-w-sm w-full  rounded-lg relative">
+    <div className="max-w-sm w-full rounded-lg relative">
       <input
         type="text"
         placeholder="Search for a country..."
