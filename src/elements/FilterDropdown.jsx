@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useSelector, useDispatch } from "react-redux";
-import { getData } from "../../features/countries";
+import { getData } from "../features/countries";
 
 export default function FilterDropdown({ onSelectRegion }) {
   const [isOpen, setIsOpen] = useState(false);
