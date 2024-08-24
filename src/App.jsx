@@ -10,24 +10,29 @@ import NotFound from './pages/NotFound';
 function App() {
 
   const [selectedCountry, setSelectedCountry] = useState(null);
-
   const handleSelectCountry = (country) => {
     setSelectedCountry(country);
   };
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setIsDarkMode(prevMode => !prevMode);
+    console.log(isDarkMode);
+    
+  };
+  
   return (
     <Router>
-      <div className="font-nunito-sans bg-gray-100 min-h-screen">
-        <Header />
-        <div className="md:px-24 ">
+      <div className={`font-nunito-sans min-h-screen ${isDarkMode ? 'dark' : 'bg-slate-200'}`}>
+        <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+        <div className="md:px-24 space-y-4">
           <Routes>
-            <Route path="/" element={<CountriesList onSelectCountry={handleSelectCountry}/>} />
-            <Route path="/country/:name" element={<CountryDetail selectedCountry={selectedCountry} />} />
+            <Route path="/" element={<CountriesList isDarkMode={isDarkMode} onSelectCountry={handleSelectCountry}/>} />
+            <Route path="/country/:name" element={<CountryDetail isDarkMode={isDarkMode} selectedCountry={selectedCountry} />} />
             <Route path="*" element={ <NotFound/> } />
           </Routes>
-          
         </div>
-        <Footer />
+        <Footer isDarkMode={isDarkMode} />
       </div>
     </Router>
   )

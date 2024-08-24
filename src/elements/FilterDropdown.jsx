@@ -3,7 +3,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useSelector, useDispatch } from "react-redux";
 import { getData } from "../features/countries";
 
-export default function FilterDropdown({ onSelectRegion }) {
+export default function FilterDropdown({ isDarkMode, onSelectRegion }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const dispatch = useDispatch();
@@ -26,9 +26,11 @@ export default function FilterDropdown({ onSelectRegion }) {
   const regions = data ? [...new Set(data.map(country => country.region))] : [];
 
   return (
-    <div className="w-full md:max-w-none rounded-lg relative flex justify-end">
+    <div className="w-full p-2 md:max-w-none rounded-lg relative flex justify-end"
+    style={{ marginTop: 0 }}>
       <div
-        className="w-full md:w-[50%] p-4 border-gray-300 bg-white rounded-md shadow-sm flex items-center justify-between cursor-pointer"
+        className={`w-full md:w-[50%] p-4 border-gray-300 bg-white rounded-md shadow-sm flex items-center justify-between cursor-pointer
+        ${isDarkMode ? 'dark shadow-md text-slate-50' : ''} `}
         onClick={toggleDropdown}
       >
         <span>Filter by Region</span>
@@ -39,9 +41,11 @@ export default function FilterDropdown({ onSelectRegion }) {
         )}
       </div>
       {isOpen && (
-        <div className="absolute w-full md:w-[50%] mt-16 bg-white border-gray-300 rounded-md shadow-lg z-50">
+        <div className={`absolute w-full md:w-[50%] mt-16 bg-white border-gray-300 rounded-md shadow-lg z-50
+        ${isDarkMode ? 'dark shadow-md text-slate-50 ' : ''} `} >
           <div 
-            className="p-4 hover:bg-gray-100 cursor-pointer"
+            className={`p-4 hover:bg-gray-100 cursor-pointer
+            ${isDarkMode ? 'hover:bg-gray-800' : ''} `}
             onClick={() => handleRegionSelect('All')}
           >
             All
@@ -49,7 +53,8 @@ export default function FilterDropdown({ onSelectRegion }) {
           {regions.map((region, index) => (
             <div 
               key={index} 
-              className="p-4 hover:bg-gray-100 cursor-pointer"
+              className={`p-4 hover:bg-gray-100 cursor-pointer
+            ${isDarkMode ? 'hover:bg-gray-800' : ''} `}
               onClick={() => handleRegionSelect(region)}
             >
               {region}

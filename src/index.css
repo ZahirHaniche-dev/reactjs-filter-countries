@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apply Nunito Sans to the entire body */
 body {
   @apply font-sans;
+}
+
+.dark {
+  background-color: #202c37;
+  color: white;
 }

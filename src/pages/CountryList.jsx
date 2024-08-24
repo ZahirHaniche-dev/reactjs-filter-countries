@@ -6,7 +6,7 @@ import spinner from "../assets/spinner.svg";
 import FilterDropdown from '../elements/FilterDropdown';
 import SearchInput from "../elements/SearchInput";
 
-export default function CountriesList({ onSelectCountry }) {
+export default function CountriesList({ isDarkMode, onSelectCountry }) {
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector(state => state.countries);
 
@@ -35,9 +35,16 @@ export default function CountriesList({ onSelectCountry }) {
             key={country.alpha3Code} 
             to={`/country/${country.name.replace(/\s+/g, '-').toLowerCase()}`} 
             onClick={() => onSelectCountry(country)}
-            className="border border-gray-300 rounded-lg shadow-sm bg-white cursor-pointer transform transition-transform duration-200 hover:-translate-y-1"
+            className={`border border-gray-300 rounded-lg shadow-sm bg-white cursor-pointer transform 
+            transition-transform duration-200 hover:-translate-y-1 
+            ${isDarkMode ? 'dark shadow-md text-slate-50 border-slate-800 shadow-md' : ''}`}
           >
-            <img src={country.flags.svg} alt={`${country.name} flag`} className="w-full h-32 object-cover rounded-t-md" />
+            <div className="relative overflow-hidden rounded-t-md">
+              {/* Agrandir la zone d'image */}
+              <div className="w-full h-48">
+                <img src={country.flags.svg} alt={`${country.name} flag`} className="w-full h-full object-cover" />
+              </div>
+            </div>
             <h2 className="text-lg font-semibold mb-2 px-4 pt-4 pb-2">{country.name}</h2>
             <p className="px-4"><strong>Population:</strong> {country.population.toLocaleString()}</p>
             <p className="px-4"><strong>Region:</strong> {country.region}</p>
@@ -45,6 +52,7 @@ export default function CountriesList({ onSelectCountry }) {
           </Link>
         ))}
       </div>
+
     );
   } else if (filteredData.length === 0 && !loading && !error) {
     contentData = <p className="text-gray-600">No countries found matching your criteria.</p>;
@@ -52,9 +60,9 @@ export default function CountriesList({ onSelectCountry }) {
 
   return (
     <div>
-      <div className="relative flex flex-col md:flex-row justify-between p-4 md:p-8 space-y-4">
-        <SearchInput searchText={searchText} setSearchText={setSearchText} />
-        <FilterDropdown onSelectRegion={setSelectedRegion} />
+      <div className={`relative flex flex-col md:flex-row justify-between p-4 md:p-8 space-y-4 ${isDarkMode ? 'dark' : ''}`}>
+        <SearchInput isDarkMode={isDarkMode} searchText={searchText} setSearchText={setSearchText} />
+        <FilterDropdown isDarkMode={isDarkMode} onSelectRegion={setSelectedRegion} />
       </div>
       <div className="items-center p-8">
         {contentData}
