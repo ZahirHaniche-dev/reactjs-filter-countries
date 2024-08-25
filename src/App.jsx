@@ -1,5 +1,5 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import React, { useState, useEffect, useParams } from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -18,14 +18,13 @@ function App() {
   const toggleDarkMode = () => {
     setIsDarkMode(prevMode => !prevMode);
     console.log(isDarkMode);
-    
   };
   
   return (
     <Router>
-      <div className={`font-nunito-sans min-h-screen ${isDarkMode ? 'dark' : 'bg-slate-200'}`}>
+      <div className={` font-nunito-sans min-h-screen ${isDarkMode ? 'dark' : 'bg-slate-200'}`}>
         <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-        <div className="md:px-24 px-8 space-y-4">
+        <div className="container md:px-0 px-0 space-y-4">
           <Routes>
             <Route path="/" element={<CountriesList isDarkMode={isDarkMode} onSelectCountry={handleSelectCountry}/>} />
             <Route path="/country/:name" element={<CountryDetail isDarkMode={isDarkMode} selectedCountry={selectedCountry} />} />

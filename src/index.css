@@ -10,3 +10,10 @@ body {
   background-color: #233342;
   color: white;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+

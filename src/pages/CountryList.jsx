@@ -64,13 +64,14 @@ export default function CountriesList({ isDarkMode, onSelectCountry }) {
             </Link>
           ))}
         </div>
-        <div className="flex justify-center mt-4">
+        <div className="flex flex-wrap justify-center mt-4">
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i}
               onClick={() => handleClick(i + 1)}
-              className={`px-3 py-1 mx-1 border rounded 
-                ${currentPage === i + 1 ? 'text-slate-50 text-slate-800' : 'bg-white text-slate-800'}`}
+              className={`px-3 py-1 m-1 border rounded 
+                ${currentPage === i + 1 ? 'bg-teal-500 text-white' : 'bg-white text-teal-500 border-teal-500'}
+                ${currentPage === i + 1 ? 'dark:bg-teal-600 dark:text-white' : 'dark:bg-slate-700 dark:text-teal-400 dark:border-teal-400'}`}
             >
               {i + 1}
             </button>
@@ -84,11 +85,11 @@ export default function CountriesList({ isDarkMode, onSelectCountry }) {
 
   return (
     <div>
-      <div className="relative flex flex-col md:flex-row justify-between p-4 md:p-8 space-y-4">
+      <div className="relative flex flex-col md:flex-row justify-between p-4 md:p-4 space-y-4">
         <SearchInput isDarkMode={isDarkMode} searchText={searchText} setSearchText={setSearchText} />
         <FilterDropdown isDarkMode={isDarkMode} onSelectRegion={setSelectedRegion} />
       </div>
-      <div className="items-center p-8 ">
+      <div className="items-center p-4">
         {contentData}
       </div>
     </div>

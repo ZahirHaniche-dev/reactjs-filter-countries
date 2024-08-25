@@ -26,8 +26,7 @@ export default function FilterDropdown({ isDarkMode, onSelectRegion }) {
   const regions = data ? [...new Set(data.map(country => country.region))] : [];
 
   return (
-    <div className="w-full p-2 md:max-w-none rounded-lg relative flex justify-end"
-    style={{ marginTop: 0 }}>
+    <div className="w-full rounded-lg relative flex justify-end mt-0 pt-0 md:mt-0 md:pt-0 lg:mt-0 lg:pt-0">
       <div
         className={`w-full md:w-[50%] p-4 border-gray-300 bg-white shadow-2xl rounded-md flex items-center justify-between cursor-pointer
         ${isDarkMode ? 'dark shadow-md text-slate-50 ' : ''} `}
