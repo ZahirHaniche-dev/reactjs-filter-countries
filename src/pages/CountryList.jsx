@@ -29,7 +29,7 @@ export default function CountriesList({ isDarkMode, onSelectCountry }) {
   if (error) contentData = <p className="text-red-600">An error has occurred</p>;
   if (filteredData.length > 0) {
     contentData = (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 shadow-2xl">
         {filteredData.map(country => (
           <Link 
             key={country.alpha3Code} 
@@ -37,7 +37,7 @@ export default function CountriesList({ isDarkMode, onSelectCountry }) {
             onClick={() => onSelectCountry(country)}
             className={`border border-gray-300 rounded-lg shadow-sm bg-white cursor-pointer transform 
             transition-transform duration-200 hover:-translate-y-1 
-            ${isDarkMode ? 'dark shadow-md text-slate-50 border-slate-800 shadow-md' : ''}`}
+            ${isDarkMode ? 'dark shadow-md text-slate-50 border-slate-800' : ''}`}
           >
             <div className="relative overflow-hidden rounded-t-md">
               {/* Agrandir la zone d'image */}
@@ -60,11 +60,11 @@ export default function CountriesList({ isDarkMode, onSelectCountry }) {
 
   return (
     <div>
-      <div className={`relative flex flex-col md:flex-row justify-between p-4 md:p-8 space-y-4 ${isDarkMode ? 'dark' : ''}`}>
+      <div className="relative flex flex-col md:flex-row justify-between p-4 md:p-8 space-y-4">
         <SearchInput isDarkMode={isDarkMode} searchText={searchText} setSearchText={setSearchText} />
         <FilterDropdown isDarkMode={isDarkMode} onSelectRegion={setSelectedRegion} />
       </div>
-      <div className="items-center p-8">
+      <div className="items-center p-8shadow-2xl">
         {contentData}
       </div>
     </div>

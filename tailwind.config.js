@@ -20,8 +20,8 @@ module.exports = {
         }
       },
       boxShadow: {
-        'custom-light': '0 1px 3px rgba(0, 0, 0, 0.1)',
-      },
+        'custom': '0 2px 5px 1px rgba(0, 0, 0, .6)',
+      }
     },
   },
   plugins: [],

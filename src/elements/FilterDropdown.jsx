@@ -29,22 +29,24 @@ export default function FilterDropdown({ isDarkMode, onSelectRegion }) {
     <div className="w-full p-2 md:max-w-none rounded-lg relative flex justify-end"
     style={{ marginTop: 0 }}>
       <div
-        className={`w-full md:w-[50%] p-4 border-gray-300 bg-white rounded-md shadow-sm flex items-center justify-between cursor-pointer
-        ${isDarkMode ? 'dark shadow-md text-slate-50' : ''} `}
+        className={`w-full md:w-[50%] p-4 border-gray-300 bg-white shadow-2xl rounded-md flex items-center justify-between cursor-pointer
+        ${isDarkMode ? 'dark shadow-md text-slate-50 ' : ''} `}
         onClick={toggleDropdown}
       >
         <span>Filter by Region</span>
         {isOpen ? (
-          <ChevronUpIcon className="w-5 h-5 text-gray-800" />
+          <ChevronUpIcon className={` w-5 h-5 text-gray-800
+          ${isDarkMode ? 'text-slate-50' : ''} `} />
         ) : (
-          <ChevronDownIcon className="w-5 h-5 text-gray-800" />
+          <ChevronDownIcon className={` w-5 h-5 text-gray-800
+            ${isDarkMode ? 'text-slate-50' : ''} `}  />
         )}
       </div>
       {isOpen && (
-        <div className={`absolute w-full md:w-[50%] mt-16 bg-white border-gray-300 rounded-md shadow-lg z-50
+        <div className={`absolute w-full md:w-[50%] mt-16 bg-white border-gray-300 rounded-md shadow-2xl z-50
         ${isDarkMode ? 'dark shadow-md text-slate-50 ' : ''} `} >
           <div 
-            className={`p-4 hover:bg-gray-100 cursor-pointer
+            className={`p-4 hover:bg-gray-100 cursor-pointer 
             ${isDarkMode ? 'hover:bg-gray-800' : ''} `}
             onClick={() => handleRegionSelect('All')}
           >

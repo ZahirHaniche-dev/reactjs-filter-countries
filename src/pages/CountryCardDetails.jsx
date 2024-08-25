@@ -1,7 +1,8 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { countryCodes } from '../features/countryCodes'
 
-export default function CountryCard({selectedCountryCard}) {
+
+export default function CountryCard({isDarkMode, selectedCountryCard}) {
   
     const navigate = useNavigate();
 
@@ -17,7 +18,8 @@ export default function CountryCard({selectedCountryCard}) {
         <div class="container mx-auto p-4">
             <div class="grid grid-cols-1 mb-12">
                 <button onClick={handleClick}
-                className="flex items-center border-gray-300 rounded-lg shadow-sm bg-white px-4 py-2 mb-4 w-min">
+                className={`flex items-center border-gray-300 rounded-lg bg-white px-4 py-2 mb-4 w-min shadow-2xl
+                ${isDarkMode ? 'dark shadow-md text-slate-50 border-slate-800' : ''}`} >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
                 </svg>
@@ -49,15 +51,17 @@ export default function CountryCard({selectedCountryCard}) {
                 <p className="space-x-2 flex flex-wrap">
                     <strong className="w-full md:w-auto">Border Countries:</strong>
                     {selectedCountryCard.borders && selectedCountryCard.borders.length > 0 ? (
-                        selectedCountryCard.borders.map((border, index) => (
-                        <span key={index} className="px-2 py-1 bg-gray-200 rounded mb-2">
-                            {border}
+                        selectedCountryCard.borders.map((borderCode, index) => (
+                        <span key={index} className={`px-2 bg-gray-200 rounded mb-2
+                        ${isDarkMode ? 'dark shadow-md text-slate-50 border-slate-800' : ''}`}>
+                            {countryCodes[borderCode] || borderCode} {/* Utilisez le dictionnaire pour obtenir le nom complet */}
                         </span>
                         ))
                     ) : (
                         <span>No border countries</span>
                     )}
                 </p>
+
 
             </div>
             </div>
