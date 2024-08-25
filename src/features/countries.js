@@ -27,7 +27,7 @@ export const countries = createSlice({
 export function getData() {
     return function(dispatch) {
         dispatch(addLoader());
-        fetch("./data.json")
+        fetch("/reactjs-filter-countries/data.json")
             .then(response => {
                 if (!response.ok) {
                     console.error('Response not OK', response.status, response.statusText);
