@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/filter-countries/',
+  base: '/reactjs-filter-countries/',
   build: {
     outDir: 'dist',
   },
