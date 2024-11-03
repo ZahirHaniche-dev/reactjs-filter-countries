@@ -28,6 +28,8 @@ Assurez-vous d'avoir les outils suivants installés sur votre machine :
 
     git clone https://github.com/ZahirHaniche-dev/reactjs-filter-countries.git
 
+    For this project, I chose Vite and ReactJS, a powerful duo for building fast and responsive web applications, along with Tailwind CSS for its utility-first approach. This country filter project provides detailed information on each country, allowing users to learn more.
+
 
 Accédez au répertoire du projet :
 
