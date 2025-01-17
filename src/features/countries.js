@@ -27,7 +27,7 @@ export const countries = createSlice({
 export function getData() {
     return function(dispatch) {
         dispatch(addLoader());
-        fetch("/reactjs-filter-countries/data.json")
+        fetch("http://localhost:5000/api/countries") // URL de l'API Express
             .then(response => {
                 if (!response.ok) {
                     console.error('Response not OK', response.status, response.statusText);
@@ -44,6 +44,7 @@ export function getData() {
             });
     };
 }
+
 
 
 export const { addData, addLoader, addError } = countries.actions;
